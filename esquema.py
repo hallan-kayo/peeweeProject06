@@ -6,7 +6,7 @@ class BaseModel(Model):
     class Meta():
         database = bd
 
-class Catetoria(BaseModel):
+class Categoria(BaseModel):
     descricao = TextField()
 
 class Cliente(BaseModel):
@@ -16,22 +16,23 @@ class Cliente(BaseModel):
 
 class Produtos(BaseModel):
     descricao = TextField()
-    id_categoria = ForeignKeyField(Catetoria, backref='produtos')
+    categoria = ForeignKeyField(Categoria, backref='produtos')
     valor = FloatField()
 
 class Historico_precos(BaseModel):
-    id_produto = ForeignKeyField(Produtos, backref= 'historico_precos')
+    produto = ForeignKeyField(Produtos, backref= 'historico_precos')
     valor = FloatField()
     data = DateTimeField()
 
 class Vendas(BaseModel):
-    id_produto = ForeignKeyField(Produtos, backref='vendas')
-    id_cliente = ForeignKeyField(Cliente, backref='vendas')
+    produto = ForeignKeyField(Produtos, backref='vendas')
+    cliente = ForeignKeyField(Cliente, backref='vendas')
+    data = DateTimeField()
     quantidade = IntegerField()
     valor_unitario = FloatField()
     valor_total = FloatField()
 
-lista_tables = [Catetoria, Cliente, Produtos, Historico_precos, Vendas]
+lista_tables = [Categoria, Cliente, Produtos, Historico_precos, Vendas]
 
 # bd.connect()
 # bd.create_tables(lista_tables)
