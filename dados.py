@@ -149,3 +149,7 @@ update1=Produtos.update({Produtos.valor:4}).where(Produtos.id == Produtos.select
 update2=Produtos.update({Produtos.valor:2}).where(Produtos.id == Produtos.select(Produtos.id).where(
     Produtos.descricao == 'Caneta Bic esferográfica azul'))
 # update2.execute()
+
+update3=Produtos.update({Produtos.valor:1.5}).where(Produtos.id == Produtos.select(Produtos.id).where(
+    Produtos.descricao == 'Caneta Bic esferográfica azul'))
+# update3.execute()
