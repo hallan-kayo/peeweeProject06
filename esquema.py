@@ -34,6 +34,6 @@ class Vendas(BaseModel):
 
 lista_tables = [Categoria, Cliente, Produtos, Historico_precos, Vendas]
 
-# bd.connect()
-# bd.create_tables(lista_tables)
-# bd.close()
+bd.connect()
+bd.create_tables(lista_tables)
+bd.close()

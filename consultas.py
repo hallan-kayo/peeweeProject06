@@ -13,8 +13,8 @@ q2 = Produtos.select(Produtos.descricao, Produtos.valor).join(Categoria).where(
     Produtos.categoria == Categoria.select(Categoria.id).where(Categoria.descricao == 'Papelaria').get()
 ).order_by(Produtos.valor)
 
-# for row in q2:
-#     print( 'Produto: ', row.descricao, ', Valor: ', row.valor)
+for row in q2:
+    print( 'Produto: ', row.descricao, ', Valor: ', row.valor)
 
 # 3 - Recupere os nomes dos clientes que fizeram ao menos uma compra com valor superior a 
 # R$ 5.000,00 no mês de setembro/2022. Exiba-os em ordem alfabética.
@@ -22,5 +22,5 @@ q3 = Cliente.select(Cliente.nome).join(Vendas).where(
     (Vendas.valor_total > 5000) & (Vendas.data.between('2022-9-1', '2022-10-1'))
 ).order_by(Cliente.nome).distinct()
 
-# for row in q3.objects():
-#     print(row.nome)
+for row in q3.objects():
+    print(row.nome)
