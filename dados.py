@@ -115,7 +115,7 @@ def cadastrar_venda(nome_cliente, nome_produto, quantidade_itens, data_venda):
             Produtos.id == Produtos.select().where(Produtos.descricao == nome_produto)),
         valor_total = (Produtos.select().where(
             Produtos.id == Produtos.select().where(
-                Produtos.descricao == 'Notebook').get()).get().valor*quantidade_itens)
+                Produtos.descricao == nome_produto).get()).get().valor*quantidade_itens)
     )
     venda.save()
 
